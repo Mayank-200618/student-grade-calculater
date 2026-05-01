@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGPA & CGPA Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🎓 Student Grade Dashboard</h1>
+</header>
+
+<div class="container">
+
+  <!-- Subject Entry -->
+  <div class="card">
+    <h2>Add Subject</h2>
+    <form id="subjectForm">
+      <input type="text" id="name" placeholder="Subject Name" required>
+      <input type="number" id="credits" min="1" max="4" placeholder="Credits (1-4)" required>
+      <input type="number" id="marks" min="0" max="100" placeholder="Marks (0-100)" required>
+      <input type="text" id="grade" placeholder="Grade" disabled>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <h2>Subjects</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Credits</th><th>Marks</th><th>Grade</th><th>Points</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- SGPA -->
+  <div class="card">
+    <h2>SGPA</h2>
+    <div class="circle">
+      <span id="sgpaValue">0.00</span>
+    </div>
+  </div>
+
+  <!-- CGPA -->
+  <div class="card">
+    <h2>CGPA Tracker</h2>
+    <input type="number" step="0.01" id="prevSgpa" placeholder="Enter Previous SGPA">
+    <button onclick="addPrev()">Add</button>
+    <p>CGPA: <span id="cgpa">0.00</span></p>
+  </div>
+
+  <!-- Grade Card -->
+  <div class="card" id="gradeCard">
+    <h2>Grade Card</h2>
+    <div id="cardContent"></div>
+    <button onclick="download()">Export</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
